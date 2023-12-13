@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ti Expert Enviroment</title>
+    <style type="text/css">
+      body {
+        background: url(https://tiexpertbot.s3.amazonaws.com/3649460.png) no-repeat center center fixed;
+      }
+      h1 {
+        color: #000000;
+        text-align: center;
+        margin-top: 200px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+      #custom_fc_button {
+        width: 65px;
+        height: 65px;
+        position: fixed;
+        z-index: 9999;
+        right: 20px;
+        bottom: 18px;
+        float: right;
+        cursor: pointer;
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px 0px #000000;
+      }
+
+      #imageicon {
+        border-radius: 50%;
+        height: 65px;
+        width: 65px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="custom_fc_button">
+      <a id="open_fc_widget" onClick="openWidget()"
+        ><img
+          id="imageicon"
+          src="https://tiexpertbot.s3.amazonaws.com/3649460.png"
+      /></a>
+    </div>
+
+    <script>
+      window.fcWidgetMessengerConfig = {
+        tags: ["ti-expert-widget"],
+        locale: "es-LA",
+        config: {
+          headerProperty: {
+            hideChatButton: true,
+          },
+        },
+      };
+    </script>
+    <script src="//fw-cdn.com/11105107/3833463.js" chat="true"></script>
+
+    <script type="text/javascript">
+      var openWidget = function () {
+        document.getElementById("fc_frame").style.visibility = "visible";
+        window.fcWidget.open();
+        initEvents();
+      };
+      var initEvents = function () {
+        window.fcWidget.on("widget:opened", function (resp) {
+          document.getElementById("custom_fc_button").style.visibility =
+            "hidden";
+        });
+        window.fcWidget.on("widget:closed", function (resp) {
+          document.getElementById("custom_fc_button").style.visibility =
+            "visible";
+        });
+      };
+    </script>
+  </body>
+</html>
